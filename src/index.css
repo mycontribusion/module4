@@ -1,0 +1,320 @@
+/* src/index.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Header & Navigation */
+.header {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center nav items */
+  gap: 25px;
+}
+
+.header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+  background-color: #61dafb; /* React blue */
+  color: #282c34;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem; /* Match link font size */
+}
+
+.nav-button:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+/* Footer */
+.footer {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* General Page Headings */
+h2 {
+  text-align: center;
+  color: #282c34;
+  margin-bottom: 25px;
+}
+
+/* Forms (Login, Register, Search) */
+.login-form, .search-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 450px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form div, .search-form div { /* for label/input pairs */
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label, .search-form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.login-form input, .search-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus, .search-form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.login-form button, .search-form button, .add-watchlist-btn, .remove-watchlist-btn, .logout-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.login-form button:hover, .search-form button:hover, .add-watchlist-btn:hover, .remove-watchlist-btn:hover, .logout-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.login-form button:disabled, .add-watchlist-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #d9534f;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+/* Movie Card */
+.movie-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  padding-bottom: 15px;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 270px; /* Consistent height */
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.movie-card h3 {
+  font-size: 1.1em;
+  margin: 0 10px 5px;
+  color: #282c34;
+  height: 2.8em; /* Ensure consistent height for titles */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.movie-card p {
+  font-size: 0.9em;
+  color: #777;
+  margin: 0 10px;
+}
+
+/* Movie Details Page */
+.movie-details-page {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  gap: 25px;
+}
+
+.details-header {
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .details-header {
+    flex-direction: row; /* Row for larger screens */
+    align-items: flex-start;
+  }
+}
+
+.details-poster {
+  width: 100%;
+  max-width: 300px; /* Limit poster size */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.details-info {
+  flex: 1;
+}
+
+.details-info h1 {
+  margin-top: 0;
+  color: #282c34;
+  font-size: 2em;
+}
+
+.details-info p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.add-watchlist-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+}
+
+/* Watchlist Page */
+.watchlist-page .movie-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Same as home for consistency */
+}
+
+.watchlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.remove-watchlist-btn {
+  background-color: #dc3545; /* Red for remove action */
+}
+
+.remove-watchlist-btn:hover {
+  background-color: #c82333;
+}
+
+/* Profile Page */
+.profile-page {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.profile-page h2 {
+  color: #282c34;
+}
+
+.profile-page p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.profile-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  margin-top: 20px;
+}
